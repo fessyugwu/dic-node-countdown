@@ -56,7 +56,6 @@ async function addTextOnImage(imageBase64) {
   )
 
   //const daysDiff = dateDiff('day')
-
   //console.log(daysDiff);
 
   const svgImage = `
