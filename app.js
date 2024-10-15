@@ -22,7 +22,6 @@ function dateDiff(get_item)
 {
   var currentDate = new Date()
   let confDate = new Date(2024, 10, 7);
-  
   var Difference_In_Time = confDate.getTime() - currentDate.getTime();
   switch (get_item) {
       case 'month':
