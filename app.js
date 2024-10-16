@@ -63,7 +63,7 @@ async function addTextOnImage(imageBase64) {
     <g transform="matrix(5.55556,0,0,5.55556,0,0)">
         <use id="Background" xlink:href="#_Image1" x="0" y="0" width="600px" height="600px"/>
         <g transform="matrix(1.20548,0,0,1.20548,-28.9937,-57.5784)">
-            <text x="124.181px" y="278.219px" style="font-family:'MicrogrammaEF';font-weight:700;font-size:30.358px;fill:white;">${daysDiff}</text>
+            <text x="124.181px" y="278.219px" style="font-family:MicrogrammaEF;font-weight:700;font-size:30.358px;fill:white;">${daysDiff}</text>
         </g>
     </g>
     <defs>
