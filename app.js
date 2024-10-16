@@ -73,6 +73,7 @@ async function addTextOnImage(imageBase64) {
     `;
    const svgBuffer = Buffer.from(svgImage);
    await sharp(svgBuffer).toFile('public/svg-image.png');
+   await sharp(svgBuffer).toFile('public/svg-image2.png');
    //const bufferImage = await sharp(svgBuffer).toBuffer();
    //Buffer.from("Hello World").toString('base64')
    //const base64Image = Buffer.from(bufferImage).toString('base64');
