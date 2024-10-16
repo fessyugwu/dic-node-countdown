@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm i --omit=dev
 COPY . .
 
-COPY MicrogrammaEF-Extend-Bold.otf /usr/share/fonts/
+RUN mv MicrogrammaEF-Extend-Bold.otf /usr/share/fonts/
 RUN fc-cache -f \ 
     && fc-cache -fv \ 
     && fc-list | sort 
