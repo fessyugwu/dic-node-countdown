@@ -1,4 +1,4 @@
-FROM node:alpine3.18 as builder
+FROM node:bookworm as builder
 
 ENV NODE_ENV=production
 
@@ -8,12 +8,11 @@ RUN npm i --omit=dev
 COPY . .
 
 COPY fonts /usr/share/fonts/Additional 
-RUN apk --update --upgrade --no-cache add fontconfig ttf-freefont font-noto terminus-font \ 
-    && fc-cache -f \ 
+RUN fc-cache -f \ 
     && fc-cache -fv \ 
     && fc-list | sort 
 
-FROM node:alpine3.18 
+FROM node:bookworm 
 COPY --from=builder /app /app
 WORKDIR /app
 CMD [ "node", "app.js"]
