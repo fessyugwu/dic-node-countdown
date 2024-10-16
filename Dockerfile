@@ -4,6 +4,8 @@ ENV NODE_ENV=production
 
 WORKDIR /app
 COPY package*.json ./
+COPY MicrogrammaEF-Extend-Bold.otf ./
+
 RUN npm i --omit=dev
 COPY . .
 
