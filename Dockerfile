@@ -7,7 +7,7 @@ COPY package*.json ./
 RUN npm i --omit=dev
 COPY . .
 
-COPY fonts /usr/share/fonts/Additional 
+COPY fonts /usr/share/fonts 
 RUN fc-cache -f \ 
     && fc-cache -fv \ 
     && fc-list | sort 
