@@ -3,6 +3,7 @@ FROM node:bookworm AS builder
 ENV NODE_ENV=production
 
 USER node
+
 WORKDIR /app
 COPY package*.json ./
 COPY MicrogrammaEFExtendBold.otf ./
@@ -12,7 +13,7 @@ COPY . .
 
 FROM node:bookworm 
 COPY --from=builder /app /app
-USER node
+
 WORKDIR /app
 COPY MicrogrammaEFExtendBold.otf /usr/share/fonts/
 RUN fc-cache -f \ 
