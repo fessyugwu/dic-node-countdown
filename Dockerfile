@@ -10,8 +10,8 @@ RUN npm i --omit=dev
 COPY . .
 
 FROM node:bookworm 
-USER node
-COPY --from=builder --chown==node:node /app /app
+
+COPY --from=builder /app /app
 
 WORKDIR /app
 COPY MicrogrammaEFExtendBold.otf /usr/share/fonts/
