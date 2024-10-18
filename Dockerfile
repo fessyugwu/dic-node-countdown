@@ -12,7 +12,7 @@ COPY . .
 FROM node:bookworm 
 COPY --from=builder /app /app
 WORKDIR /app
-RUN chmod 775 '/public'
+RUN chmod -R 775 '/public'
 COPY MicrogrammaEFExtendBold.otf /usr/share/fonts/
 RUN fc-cache -f \ 
     && fc-cache -fv \ 
