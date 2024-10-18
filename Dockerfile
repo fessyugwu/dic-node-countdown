@@ -14,7 +14,6 @@ FROM node:bookworm
 COPY --from=builder /app /app
 USER node
 WORKDIR /app
-RUN chmod -R 775 '/public'
 COPY MicrogrammaEFExtendBold.otf /usr/share/fonts/
 RUN fc-cache -f \ 
     && fc-cache -fv \ 
