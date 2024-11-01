@@ -55,18 +55,20 @@ async function sendBase64(bs64) {
 async function addTextOnImage(imageBase64) {
  try {
   const todayDate = new Date() // today
-  const currentDateIStr = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`;
+  const currentDateIStr = `${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate().toString().length > 1 ? todayDate.getDate() : todayDate.getDate().toString().padStart(2, '0') }`;
   console.log(currentDateIStr);
   const currentDate = new Date(`${currentDateIStr}T00:00:01`);
   console.log(currentDate);
   //console.log(`${todayDate.getFullYear()}-${todayDate.getMonth() + 1}-${todayDate.getDate()}`);
   const secondDate = new Date("2024-11-07T00:00:01") // 7th Nov, 2024
-  console.log(secondDate);
+  console.log('secondDate', secondDate);
   const millisecondsDiff = secondDate.getTime() - currentDate.getTime()
 
   const daysDiff = Math.round(
     millisecondsDiff / (24 * 60 * 60 * 1000)
   )
+
+  const padddedDaysDiff = daysDiff.toString().padStart(2, '0');
 
   //const daysDiff = dateDiff('day')
   //console.log(daysDiff);
@@ -76,7 +78,7 @@ async function addTextOnImage(imageBase64) {
     <g transform="matrix(5.55556,0,0,5.55556,0,0)">
         <use id="Background" xlink:href="#_Image1" x="0" y="0" width="600px" height="600px"/>
         <g transform="matrix(1.20548,0,0,1.20548,-28.9937,-57.5784)">
-            <text x="124.181px" y="278.219px" style="font-family:MicrogrammaEF;font-weight:700;font-size:30.358px;fill:#e9e9e9;">0${daysDiff}</text>
+            <text x="124.181px" y="278.219px" style="font-family:MicrogrammaEF;font-weight:700;font-size:30.358px;fill:#e9e9e9;">${padddedDaysDiff}</text>
         </g>
     </g>
     <defs>
