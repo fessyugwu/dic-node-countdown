@@ -198,7 +198,7 @@ async function genNameImage(fullName, bs64) {
 app.get("/hello", imageBase64, async (req, res) => {
   console.log("Hello...");
   try {
-    const resp = await addTextOnImage(imageBase64);
+    const resp = await addTextOnImage(req.img);
     console.log(resp);
     if(resp.daysToGo != null) {
       var msgDday;
