@@ -72,8 +72,9 @@ async function addTextOnImage(imageBase64) {
 
   //const daysDiff = dateDiff('day')
   //console.log(daysDiff);
-  
-  const svgImage = `
+  var svgImage;
+  if (daysDiff > 1) {
+  svgImage = `
     <svg width="100%" height="100%" viewBox="0 0 3334 3334" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
     <g transform="matrix(5.55556,0,0,5.55556,0,0)">
         <use id="Background" xlink:href="#_Image1" x="0" y="0" width="600px" height="600px"/>
@@ -86,6 +87,19 @@ async function addTextOnImage(imageBase64) {
     </defs>
 </svg>
     `;
+  } else {
+    svgImage = `
+    <svg width="100%" height="100%" viewBox="0 0 600 600" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <use id="Background" xlink:href="#_Image1" x="0" y="0" width="600px" height="600px"/>
+    <g transform="matrix(1.12647,0,0,1.12647,-24.9381,-41.343)">
+        <text x="130.764px" y="284.481px" style="font-family:'MicrogrammaEF';font-weight:700;font-size:32.177px;fill:rgb(255,253,255);">${padddedDaysDiff}</text>
+    </g>
+    <defs>
+      ${imageBase64}
+    </defs>
+</svg>
+    `;
+  }
    const svgBuffer = Buffer.from(svgImage);
    await sharp(svgBuffer).toFile('public/svg-image.png');
    await sharp(svgBuffer).toFile('public/svg-image2.png');
@@ -191,7 +205,7 @@ app.get("/hello", imageBase64, async (req, res) => {
       if(resp.daysToGo > 1) {
         msgDday = `Destiny International Conference 2024 is ${resp.daysToGo} Days To Go`;
       } else {
-        msgDday = `Destiny International Conference 2024 is ${resp.daysToGo} Days To Go`;
+        msgDday = `Destiny International Conference 2024 is ${resp.daysToGo} Day To Go`;
       }
         
       const respData = { daysToGo:  msgDday };
