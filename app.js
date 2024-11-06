@@ -208,7 +208,7 @@ app.get("/hello", imageBase64, async (req, res) => {
         msgDday = `Destiny International Conference 2024 is ${resp.daysToGo} Day To Go`;
       }
         
-      const respData = { daysToGo:  msgDday };
+      const respData = { daysToGo:  resp.daysToGo, daysToGoWords:  msgDday  };
       res.end(JSON.stringify(respData));
     } else {
       const respData = { daysToGo: null };
