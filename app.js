@@ -103,6 +103,7 @@ async function addTextOnImage(imageBase64) {
    const svgBuffer = Buffer.from(svgImage);
    await sharp(svgBuffer).toFile('public/svg-image.png');
    await sharp(svgBuffer).toFile('public/svg-image2.png');
+   
    //const bufferImage = await sharp(svgBuffer).toBuffer();
    //imageThreeBase64 = Buffer.from(bufferImage).toString('base64');
    return {daysToGo: daysDiff};
