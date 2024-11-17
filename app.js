@@ -51,7 +51,6 @@ async function sendBase64(bs64) {
     return respData;
   }
 }
-
 async function addTextOnImage(imageBase64) {
  try {
   const todayDate = new Date() // today
